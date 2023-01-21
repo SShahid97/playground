@@ -1,0 +1,41 @@
+<div class="back">
+    <a (click)="goBackToStudentDetails()">< Back</a> 
+</div>
+<div class="container">
+    <h2  *ngIf="studentId==0">Add Student</h2>
+    <h2 *ngIf="studentId!=0">Edit Student</h2>
+    <form class="student-form"  [formGroup]="studentForm" (ngSubmit)="submitForm()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" formControlName="name" >
+        </div>
+        <div class="mb-3">
+          <label for="rollno" class="form-label">Roll Number</label>
+          <input type="number" class="form-control"  id="rollno" formControlName="rollno" >
+        </div>
+        <div class="mb-3">
+            <label for="marks" class="form-label">Marks</label>
+            <input type="number" class="form-control" id="marks" formControlName="marks" >
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" formControlName="address" >
+        </div>
+        <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select class="form-select" aria-label="gender" formControlName="gender" >
+                <option disabled selected>Select Gender</option>
+                <option value="male" >Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+        
+        <div class="submit-btn">
+            <button type="submit" class="btn btn-primary">
+               <span *ngIf="studentId==0"> Submit</span>
+               <span *ngIf="studentId!=0"> Update</span>
+            </button>
+        </div>
+    </form>
+</div>
+
